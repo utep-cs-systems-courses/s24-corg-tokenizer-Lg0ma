@@ -87,3 +87,25 @@ char *copy_str(char *inStr, short len)
 }
 
 
+//** is a pointer to a pointer 
+// a pointer to a 
+char **tokenize(char* str)
+{
+
+
+}
+
+
+void print_tokens(char **tokens)
+{
+
+
+}
+
+
+void free_tokens(char **tokens)
+{
+
+
+}
+
