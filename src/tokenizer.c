@@ -71,3 +71,19 @@ int count_tokens(char *str)
 
     return count;
 }
+
+char *copy_str(char *inStr, short len)
+{
+    char *Str_copy = malloc((len+1)*sizeof(char));// allocates memory for a pointer of type char of size len +1 for all chars in the inStr and a zero-termnator * the size of a char in bytes
+    // len + 1 wouldve worked as chars are of size 1 bytes but for good practice we still multiply by sizeof(char)
+    int i;
+    for(i = 0; i < len; i++)
+    {
+        Str_copy[i] = inStr[i];// copies the value stored at inStr[i] into the new pointer at Str_copy[i]
+
+    }
+    Str_copy[i] = '\0';// ends the copy with a zero-terminator
+    return Str_copy;
+}
+
+
