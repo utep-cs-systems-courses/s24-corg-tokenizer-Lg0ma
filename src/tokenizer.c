@@ -56,12 +56,18 @@ int i = 0;
 
 int count_tokens(char *str)
 {
- int count = 0;
- char *temp = str;
- temp = token_start(temp);
- while(*temp)
- {
-    
- }
+    int count = 0;
+    char *temp = str;
+    temp = token_start(temp);// assigns temp the first instance of a nonspace char IE: a pointer to the first token
+    while(*temp)//while temp still points to anything other than a terminator pointer loop
+    {
+        if(non_space_char(*temp))
+        {
+            count++;
+        }
+        temp = token_terminator(temp);//changes temp to the next space, '\t' 
+        temp = token_start(temp);//changes temp to the next nonspace char after a space char
+    }
 
+    return count;
 }
