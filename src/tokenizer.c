@@ -1,8 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <tokenizer.h>
-#include <history.h>
+//#include <tokenizer.h>
 
+int main()
+{
+  char string[25];
+  printf("Enter String to be tokenized\n");
+  printf("> ");
+  scanf("%[^\n]", string);//takes in input until it encounters a new line i.e. the end of a string
+  printf("%s\n", string);
+
+  return 0;
+
+}
 
 //returns true if char c is a whitespace char or \t
 int space_char(char c)
@@ -88,10 +98,10 @@ char *copy_str(char *inStr, short len)
 
 
 //** is a pointer to a pointer 
-// a pointer to a 
+// arrays of strings are pointers to pointers of chars 
 char **tokenize(char* str)
 {
-
+  int num_tokens = count_tokens(str);//number of tokens we will have to tokenize
 
 }
 
