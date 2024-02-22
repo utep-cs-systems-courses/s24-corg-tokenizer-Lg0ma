@@ -102,12 +102,31 @@ char *copy_str(char *inStr, short len)
 char **tokenize(char* str)
 {
   int num_tokens = count_tokens(str);//number of tokens we will have to tokenize
+  char **tokens = malloc(sizeof(char *)* (num_tokens + 1)); //allocate size of tokens array using sizeof(char) times num_tokens + 1 for the '\0' char 
+  char *token = str;//copy of the str pointer 
 
+  for (int i = 0; i < num_tokens; i++)//loop that goes for the number of tokens in the str pointer
+  {
+    token = token_start(token);//moves token pointer to the start of a token in the string
+    char *token_end = token_terminator(token);//creates a pointer to the end of the current token
+    int len = token_end - token;//gets the length of the token by subtracting the end by the start
+    tokens[i] = copy_str(token, len);// copies the token into tokens array at i
+    token = token_terminator(token);//token = token_end; could work too    //moves token pointer to the end of the current token
+  }
+  tokens[num_tokens] = '\0';  //ends the tokens array with a '\0' char
+  free(token);//frees the token pointer
+  return tokens;
 }
 
 
 void print_tokens(char **tokens)
 {
+int i = 0;
+while (tokens[i])//traverses the array till reaching the '\0' token
+{
+    printf("Token #%d: %s\n", i, tokens[i]);//prints token as: Token #i: tokens[i]
+    i++;
+}
 
 
 }
@@ -115,7 +134,12 @@ void print_tokens(char **tokens)
 
 void free_tokens(char **tokens)
 {
-
+int i = 0;
+while(tokens[i])//traverses the array till reaching the '\0' token
+{
+    free(tokens[i]);//frees token at i 
+    i++;
+}
 
 }
 
