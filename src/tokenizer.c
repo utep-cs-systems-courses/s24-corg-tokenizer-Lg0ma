@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-//#include <tokenizer.h>
+#include "tokenizer.h"
 
 int main()
 {
@@ -9,6 +9,8 @@ int main()
   printf("> ");
   scanf("%[^\n]", string);//takes in input until it encounters a new line i.e. the end of a string
   printf("%s\n", string);
+
+  tokenize(string);
 
   return 0;
 
