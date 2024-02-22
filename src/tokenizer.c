@@ -10,7 +10,6 @@ int main()
   scanf("%[^\n]", string);//takes in input until it encounters a new line i.e. the end of a string
   printf("%s\n", string);
 
-  tokenize(string);
 
   return 0;
 
