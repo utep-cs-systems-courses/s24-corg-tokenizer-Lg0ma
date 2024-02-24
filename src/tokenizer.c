@@ -10,7 +10,7 @@ int main()
   printf("Enter String to be tokenized\n");
   printf("> ");
   scanf("%[^\n]", string);//takes in input until it encounters a new line i.e. the end of a string
-  char **token = tokenize(string);
+  char *token = tokenize(string);
 //   print_tokens(token);
   add_history(history,token);
   print_history(history);
