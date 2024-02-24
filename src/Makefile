@@ -1,19 +1,20 @@
-//use UI
-tokenize: tokenizer.o
-	gcc -o tokenize tokenizer.o
+#tokenize: tokenizer.o
+#	gcc -o tokenize tokenizer.o
 
 tokenizer:history.o tokenizer.o
 	gcc -o tokenizer history.o tokenizer.o
 
-tokenize.o: tokenizer.c tokenizer.h
+tokenizer.o:
+	tokenizer.h tokenizer.c
 
-history.h: history.c history.h
+history.h:
+	history.h history.c
 
-tokenizer: 
+run: 
 	./tokenizer
 
-test:
-	./tokenize
+#test:
+#	./tokenize
 
 clean:
-	rm -r *.o tokenize
+	rm -r *.o tokenizer
