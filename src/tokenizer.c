@@ -9,8 +9,9 @@ int main()
   printf("> ");
   scanf("%[^\n]", string);//takes in input until it encounters a new line i.e. the end of a string
   printf("%s\n", string);
-
-
+  
+  char **tokens = tokenize(string);
+  print_tokens(tokens);
   return 0;
 
 }
@@ -115,7 +116,6 @@ char **tokenize(char* str)
     token = token_terminator(token);//token = token_end; could work too    //moves token pointer to the end of the current token
   }
   tokens[num_tokens] = '\0';  //ends the tokens array with a '\0' char
-  free(token);//frees the token pointer
   return tokens;
 }
 
@@ -128,6 +128,7 @@ while (tokens[i])//traverses the array till reaching the '\0' token
     printf("Token #%d: %s\n", i, tokens[i]);//prints token as: Token #i: tokens[i]
     i++;
 }
+ printf("Token #%d: %s\n",i, tokens[i]);
 
 
 }
