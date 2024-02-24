@@ -1,12 +1,18 @@
-CFLAGS = -g
-all:tokenize
-
+//use UI
 tokenize: tokenizer.o
-	cc -o tokenize tokenizer.o
+	gcc -o tokenize tokenizer.o
+
+tokenizer:history.o tokenizer.o
+	gcc -o tokenizer history.o tokenizer.o
 
 tokenize.o: tokenizer.c tokenizer.h
 
-run:
+history.h: history.c history.h
+
+tokenizer: 
+	./tokenizer
+
+test:
 	./tokenize
 
 clean:

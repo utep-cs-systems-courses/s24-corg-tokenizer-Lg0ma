@@ -1,17 +1,26 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "tokenizer.h"
+#include "history.h"
 
 int main()
 {
+  List *history = init_history();
   char string[25];
   printf("Enter String to be tokenized\n");
   printf("> ");
   scanf("%[^\n]", string);//takes in input until it encounters a new line i.e. the end of a string
-  printf("%s\n", string);
+  char **token = tokenize(string);
+//   print_tokens(token);
+  add_history(history,token);
+  print_history(history);
+
   
-  char **tokens = tokenize(string);
-  print_tokens(tokens);
+  
+//   char **tokens = tokenize(string);
+//   print_tokens(tokens);
+
+
   return 0;
 
 }
