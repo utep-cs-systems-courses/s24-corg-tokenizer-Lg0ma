@@ -59,7 +59,7 @@ void print_history(List *list)
         Item *temp = list->root;//copy root into temp
         while(temp)//while temp is not null
         {
-            printf("Item %d: %s\n", temp->id,temp->str);
+            printf("Item id = %d: %s\n", temp->id,temp->str);
             temp = temp->next;//move to ext Item
         }
     }

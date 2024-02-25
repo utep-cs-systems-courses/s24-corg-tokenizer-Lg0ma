@@ -3,28 +3,6 @@
 #include "tokenizer.h"
 #include "history.h"
 
-int main()
-{
-  List *history = init_history();
-  char string[25];
-  printf("Enter String to be tokenized\n");
-  printf("> ");
-  scanf("%[^\n]", string);//takes in input until it encounters a new line i.e. the end of a string
-  char **tokens = tokenize(string);
-//   print_tokens(token);
-  add_history(history,*tokens);
-  print_history(history);
-
-  
-  
-//   char **tokens = tokenize(string);
-//   print_tokens(tokens);
-
-
-  return 0;
-
-}
-
 //returns true if char c is a whitespace char or \t
 int space_char(char c)
 {
@@ -154,3 +132,39 @@ while(tokens[i])//traverses the array till reaching the '\0' token
 
 }
 
+int main()
+{
+    List *history = init_history();
+    char string[100];
+    char *token;
+
+    char select;
+    printf("Please make a selection for what you want to do\n");
+    while(1)
+    {
+        printf("Enter '1' to tokenize a new string, '2' to print the history, and '3' to find an Item in the history\n");
+        scanf(" %c", &select);
+        switch (select)
+        {
+        case '1':
+            printf("Enter string to be tokenized\n>");
+            scanf("%[^\n]", &string);
+            break;
+        case '2':
+            printf("2\n");
+            break;
+        case '3':
+            printf("3\n");
+            break;        
+        default:
+            printf("Wrong input\n");
+            break;
+        }
+        
+    
+
+    }
+    // scanf("%[^\n]", );//takes in input until it encounters a new line i.e. the end of a string
+    return 0;
+
+}
