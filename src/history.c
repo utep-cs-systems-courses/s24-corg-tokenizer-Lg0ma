@@ -11,18 +11,60 @@ List* init_history()
 
 void add_history(List *list, char *str)
 {
-    int pos_id = 1;//creates position id at 1 to correctly assign it for later additions
-    Item *temp = list->root;//creates new Item named temp a copy of the root of the list
-    
-    while(temp)//traverses the array forward to get the position id of the new node and to move us to the tail of the list to add new Item
+    int pos_id = 1;
+    Item *temp = list->root;
+
+    // Traverse the list to find the last item
+    while (temp && temp->next)
     {
         temp = temp->next;
         pos_id++;
     }
-    temp = malloc(sizeof(Item));//alloctes memory for new Item at the end of the list 
-    temp->id = pos_id;//assign pos_id to new Item 
-    temp->str = str;//stores token into the Item str variable
+
+    // Allocate memory for the new item
+    Item *new_item = malloc(sizeof(Item));
+    if (new_item == NULL) {
+        fprintf(stderr, "Memory allocation failed\n");
+        return;
+    }
+
+    // Allocate memory for the string and copy the content
+    new_item->str = strdup(str);
+    if (new_item->str == NULL) {
+        fprintf(stderr, "Memory allocation failed\n");
+        free(new_item);
+        return;
+    }
+
+    new_item->id = pos_id;
+    new_item->next = NULL;
+
+    // If the list is empty, set the new item as the root
+    if (temp == NULL)
+    {
+        list->root = new_item;
+    }
+    else
+    {
+        // Otherwise, add the new item to the end of the list
+        temp->next = new_item;
+    }
 }
+
+// void add_history(List *list, char *str)
+// {
+//     int pos_id = 1;//creates position id at 1 to correctly assign it for later additions
+//     Item *temp = list->root;//creates new Item named temp a copy of the root of the list
+    
+//     while(temp)//traverses the array forward to get the position id of the new node and to move us to the tail of the list to add new Item
+//     {
+//         temp = temp->next;
+//         pos_id++;
+//     }
+//     temp = malloc(sizeof(Item));//alloctes memory for new Item at the end of the list 
+//     temp->id = pos_id;//assign pos_id to new Item 
+//     temp->str = str;//stores token into the Item str variable
+// }
 
 char *get_history(List *list, int id)
 {
