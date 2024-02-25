@@ -148,10 +148,14 @@ int main()
         {
         case '1':
             printf("Enter string to be tokenized\n>");
-            scanf("%[^\n]", &string);
+            scanf(" %[^\n]", &string);
+	    char **tokens = tokenize(string);
+	    printf("\n");
+	    print_tokens(tokens);
+	    add_history(history, *tokens);
             break;
         case '2':
-            printf("2\n");
+	    print_history(history);
             break;
         case '3':
             printf("3\n");

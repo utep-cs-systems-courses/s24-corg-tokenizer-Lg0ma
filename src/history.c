@@ -4,14 +4,8 @@
 
 List* init_history()
 {
-    List *history;//create poiter to Root of list
-    history = malloc(sizeof(List));//allocates memory for List since List type is just a pointer of type Item we could use List and Item in the same way as they are the same size
-    history->root = NULL;//sets initial root pointer to null will be changed in futher functions
-    if(history == NULL)//memory allocation error
-    {
-        free(history);
-        return NULL;
-    }
+    List *history = malloc(sizeof(List));//allocates memory for List
+    history->root = malloc(sizeof(Item));//sets initial root pointer to null will be changed in futher functions
     return history;
 }
 
@@ -53,15 +47,16 @@ char *get_history(List *list, int id)
 void print_history(List *list)
 {
     if(!list)//if tlist is empty return
-        return;
+      printf("Nothing is in the history");
     else
     {
         Item *temp = list->root;//copy root into temp
         while(temp)//while temp is not null
         {
-            printf("Item id = %d: %s\n", temp->id,temp->str);
-            temp = temp->next;//move to ext Item
+	  printf(" %d: %s\n", temp->id,temp->str);
+            temp->next;//move to ext Item
         }
+	printf("\n");
     }
 }
 
