@@ -55,7 +55,7 @@ void print_history(List *list)
         while(temp)//while temp is not null
         {
 	  printf(" %d: %s\n", temp->id,temp->str);
-            temp->next;//move to ext Item
+            temp = temp->next;//move to ext Item
         }
 	printf("\n");
     }

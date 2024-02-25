@@ -141,7 +141,7 @@ int main()
     printf("Please make a selection for what you want to do\n");
     while(1)
     {
-        printf("Enter '1' to tokenize a new string, '2' to print the history, and '3' to find an Item in the history\n");
+        printf("Enter '1' to tokenize a new string, '2' to print the history, and '3' to find an Item in the history or 'q' to exit\n");
         scanf(" %c", &select);
         switch (select)
         {
@@ -167,7 +167,7 @@ int main()
 	      }
             break;
 	case 'q':
-	  printf("Exiting system...");
+	  printf("Exiting system...\n");
 	  free_history(history);
 	  return 0;
         default:
