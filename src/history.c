@@ -13,6 +13,7 @@ void add_history(List *list, char *str)
 {
     int pos_id = 1;//creates position id at 1 to correctly assign it for later additions
     Item *temp = list->root;//creates new Item named temp a copy of the root of the list
+    
     while(temp)//traverses the array forward to get the position id of the new node and to move us to the tail of the list to add new Item
     {
         temp = temp->next;

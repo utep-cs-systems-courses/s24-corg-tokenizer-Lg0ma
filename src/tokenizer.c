@@ -137,7 +137,6 @@ int main()
     List *history = init_history();
     char string[100];
     char *token;
-
     char select;
     printf("Please make a selection for what you want to do\n");
     while(1)
@@ -158,8 +157,19 @@ int main()
 	    print_history(history);
             break;
         case '3':
-            printf("3\n");
-            break;        
+            printf("Enter pos_id for item you are looking for\n");
+	    int pos;
+	    scanf(" %d", &pos);
+	    token = get_history(history,pos);
+	    if(token != NULL)
+	      {
+	    printf("%s", token);
+	      }
+            break;
+	case 'q':
+	  printf("Exiting system...");
+	  free_history(history);
+	  return 0;
         default:
             printf("Wrong input\n");
             break;
@@ -168,7 +178,4 @@ int main()
     
 
     }
-    // scanf("%[^\n]", );//takes in input until it encounters a new line i.e. the end of a string
-    return 0;
-
 }
