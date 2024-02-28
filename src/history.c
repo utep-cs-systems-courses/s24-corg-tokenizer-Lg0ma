@@ -22,6 +22,7 @@ void add_history(List *list, char *str)
     temp = malloc(sizeof(Item));//alloctes memory for new Item at the end of the list 
     temp->id = pos_id;//assign pos_id to new Item 
     temp->str = str;//stores token into the Item str variable
+    list = temp;
 }
 
 char *get_history(List *list, int id)
