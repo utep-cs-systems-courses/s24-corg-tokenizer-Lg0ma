@@ -15,7 +15,7 @@ void add_history(List *list, char *str)
     static int pos_id = 0;//declare variable pos_id to keep count of items to use count as item id
     if(list != NULL)//if list exists
     {
-        Item *new_item = malloc(sizeof(Item));//declare new item and allocate size
+        Item *new_item = (Item*)malloc(sizeof(Item));//declare new item and allocate size
         if(new_item != NULL)//if new_item exists
         {
             new_item->id = pos_id;//set new_items id to pos_id
