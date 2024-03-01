@@ -23,6 +23,7 @@ int main()
 	    char **tokens = tokenize(string);
 	    printf("\n");
 	    print_tokens(tokens);
+        printf("Before add_history");
 	    add_history(history, *tokens);
             break;
         case '2':
