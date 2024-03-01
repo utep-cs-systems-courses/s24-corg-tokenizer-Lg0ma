@@ -6,7 +6,7 @@
 List* init_history()
 {
     List *history = malloc(sizeof(List));//allocates memory for List
-    history->root = NULL;//sets initial root pointer to null will be changed in futher functions
+    history->root = malloc(sizeof(Item));//sets initial root pointer to null will be changed in futher functions
     return history;
 }
 
