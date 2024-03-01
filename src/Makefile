@@ -14,4 +14,4 @@ clean:
 	rm -f *.o tokenizer
 
 debug: history.o tokenizer.o UImain.o
-	gcc -wall -o tokenizer history.o tokenizer.o UImain.o
+	gcc -Wall -o tokenizer history.o tokenizer.o UImain.o
