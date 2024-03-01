@@ -17,5 +17,5 @@ debugger: history.o tokenizer.o UImain.o
 	gcc -Wall -o debug history.o tokenizer.o UImain.o
 
 debug:
-	./debugger
+	./debug
 
