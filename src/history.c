@@ -16,38 +16,48 @@ List* init_history()
 void add_history(List *list, char *str)
 {
     static int pos_id = 1;//declare variable pos_id to keep count of items to use count as item id
-    if(list != NULL)//if list exists
+    Item *new_item = (Item*)malloc(sizeof(Item));//create and allocate memory for new_item
+    if(list == NULL)//handle memory allocation failure
     {
-        Item *new_item = (Item*)malloc(sizeof(Item));//declare new item and allocate size
-        if(new_item != NULL)//if new_item exists
-        {
-            new_item->id = pos_id;//set new_items id to pos_id
-
-            int i;
-            for(i = 0; i < MAXTOKENS && str[i] != '\0'; i++)//loop till the end of the str array is met or till MAXTOKENS is reached
-            {
-                new_item->str[i] = str[i];//assign str[i] in new_item to str[i](str array passed as parameter)
-            }
-            new_item->str[i] = '\0';//end the new_item's str array with zero terminator
-            new_item->next = NULL;//set next to NULL
-
-            if(list->root == NULL)//if list has no item in root
-            {
-                list->root = new_item;//If list has no items in it new_item will be the root
-            }
-            else
-            {
-                Item *temp = list->root;//create copy of list->root
-                while(temp->next != NULL)//iterate through temp unli the end of the list is met
-                {
-                    temp = temp->next;//advance to next item in list
-                }
-                temp->next = new_item;//add new_item to list
-            }
-            pos_id++;//increase static variable pos_id for next method call
-        }
+        fprintf(stderr,"Memory allocation Failed\n");
+        return;
     }
+
+    int len = 0;//create lenn var to store str length
+    while(str[len] != '\0')//iterate through str until the zero terminator
+    {
+        len++;//increase len by 1
+    }
+
+    new_item->str = (char*)malloc((len + 1) * (sizeof(char)));//allocate memory to str based on the length of the string
+    if(new_item == NULL)//handle memory allocation failure
+    {
+        fprintf(stderr,"new_item->str Memory allocation Failed\n");
+    }
+
+    for(int i =0;  i < len; i++)//iterate through str 
+    {
+        new_item->str[i] = str[i];//copy str into new_item->str one char at a time
+    }
+    new_item->next = NULL;//set next to NULL
     
+    if(list->root == NULL)//if list is empty
+    {
+        new_item->id = pos_id;//set new_item id to pos_id
+        list->root = new_item;//set new_item to list->root
+    }
+    else//else list has items in it 
+    {
+        Item *list_cpy = list->root;//create a copy of list root
+        while (list_cpy->next != NULL)//iterate through the copy until there is no next pointer
+        {
+            list_cpy = list_cpy->next;//set list to next pointer
+        }
+        new_item->id = list_cpy->id + 1;// set new_item id 
+        list_cpy->next = new_item;//assign list->next to the new_item
+        
+    }
+    pos_id++;
 }
 
 char *get_history(List *list, int id)
@@ -104,6 +114,13 @@ void free_history(List *list)
     }
 }
 
+//testing main
+// int main()
+// {
+//     List *history = init_history();
+//     add_history(history,"hello");
+//     add_history(history,"hello");
+//     print_history(history);
+//     return 0;
 
-
-
+// }

@@ -22,10 +22,10 @@ int main()
             scanf(" %[^\n]", &string);
 	    char **tokens = tokenize(string);
 	    printf("\n");
-        printf("before print tokens");
+        printf("before print tokens\n");
 	    print_tokens(tokens);
-        printf("Before add_history");
-	    // add_history(history, *tokens);
+        printf("Before add_history\n");
+	    add_history(history, *tokens);
             break;
         case '2':
 	    print_history(history);
@@ -49,7 +49,5 @@ int main()
             break;
         }
         
-    
-
     }
 }
