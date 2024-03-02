@@ -130,14 +130,14 @@ void free_history(List *list)
 }
 
 //testing main
-int main()
-{
-    List *history = init_history();
-    add_history(history,"hello ss");
-    add_history(history,"hello");
-    // char *token = get_history(history,1);
-    // printf("%s", token);
-    print_history(history);
-    return 0;
+// int main()
+// {
+//     List *history = init_history();
+//     add_history(history,"hello ss");
+//     add_history(history,"hello");
+//     // char *token = get_history(history,1);
+//     // printf("%s", token);
+//     print_history(history);
+//     return 0;
 
-}
+// }
