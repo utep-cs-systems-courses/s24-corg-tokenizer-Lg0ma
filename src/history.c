@@ -63,7 +63,7 @@ void add_history(List *list, char *str)
 char *get_history(List *list, int id)
 {
 
-    Item *temp;//create temp item for use ahead
+    Item *temp = list->root;//create temp item for use ahead
     if(list->root == NULL || list == NULL)//if tlist is empty retun '\0'
         return '\0';
     {
@@ -123,12 +123,14 @@ void free_history(List *list)
 }
 
 //testing main
-// int main()
-// {
-//     List *history = init_history();
-//     add_history(history,"hello");
-//     add_history(history,"hello");
-//     print_history(history);
-//     return 0;
+int main()
+{
+    List *history = init_history();
+    add_history(history,"hello");
+    add_history(history,"hello");
+    char *token = get_history(history,1);
+    printf("%s", token);
+    print_history(history);
+    return 0;
 
-// }
+}
