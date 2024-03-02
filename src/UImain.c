@@ -32,7 +32,7 @@ int main()
             printf("Enter pos_id for item you are looking for\n");
             int pos;
             scanf(" %d", &pos);
-            printf("Printing History Item of id:%d", pos);
+            printf("Printing History Item of id:%d\n", pos);
             token = get_history(history,pos);
             char **item = tokenize(token);
             print_tokens(item);
