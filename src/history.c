@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "history.h"
-#include "tokenizer.h"
-#include "tokenizer.c"
 
 #define MAXTOKENS 100
 
