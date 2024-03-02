@@ -83,15 +83,25 @@ char *get_history(List *list, int id)
 
 void print_history(List *list)
 {
-    if(!list)//if tlist is empty return
+    if(list->root == NULL || list == NULL)//if list is empty return
       printf("Nothing is in the history");
-    else
+      return;
     {
+
         Item *temp = list->root;//copy root into temp
-        while(temp)//while temp is not null
+        printf("Printing History: \n");
+        while(temp != NULL)//while temp is not null
         {
-	  printf(" %d: %s\n", temp->id,temp->str);
-            temp = temp->next;//move to ext Item
+            if(temp->str != NULL)//chek if str is null or not
+            {
+                printf("[ID:[%d] : %s]", temp->id, temp->str);//print id and item->str associated with id
+                temp = temp->next;//move temp to next 
+            }
+            else
+            {
+                printf("[ID:[%d] : NULL]", temp->id);//print id and NULL for when last item is met
+ 
+            }
         }
 	printf("\n");
     }
