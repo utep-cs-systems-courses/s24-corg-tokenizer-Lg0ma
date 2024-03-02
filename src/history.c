@@ -38,11 +38,9 @@ void add_history(List *list, char *str)
         free(new_item);
     }
 
-    int i;
-    for (i = 0; i < len; i++) {
-        new_item->str[i] = str[i];
-    }
-    new_item->str[i] = '\0'; // Add null terminator at the end
+  for(int i = 0; i < len; i++){
+    new_item->str[i] = str[i];
+  }
 
     new_item->next = NULL;//set next to NULL
     
