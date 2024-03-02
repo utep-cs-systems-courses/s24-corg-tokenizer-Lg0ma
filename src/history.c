@@ -64,12 +64,10 @@ char *get_history(List *list, int id)
 {
 
     Item *temp;//create temp item for use ahead
-    if(!list)//if tlist is empty retun '\0'
+    if(list->root == NULL || list == NULL)//if tlist is empty retun '\0'
         return '\0';
-    else
     {
-        temp = list->root;// make temp a copy of the root
-        while (temp)//while temp is not NULL
+        while (temp != NULL)//while temp is not NULL
         {
             if(temp->id == id)//if id is found return str of item with matching id
             {
