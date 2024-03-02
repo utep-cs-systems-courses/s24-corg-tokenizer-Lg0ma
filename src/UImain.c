@@ -32,11 +32,12 @@ int main()
             printf("Enter pos_id for item you are looking for\n");
             int pos;
             scanf(" %d", &pos);
+            printf("Printing History Item of id:%d", pos);
             token = get_history(history,pos);
             char **item = tokenize(token);
             print_tokens(item);
             free_tokens(item);
-            printf("\n");
+            printf("-------------------------------\n");
             break;
 	case 'q':
 	  printf("Exiting system...\n");
