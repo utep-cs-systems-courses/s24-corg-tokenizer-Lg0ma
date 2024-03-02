@@ -82,9 +82,10 @@ char *get_history(List *list, int id)
 void print_history(List *list)
 {
     if(list->root == NULL || list == NULL)//if list is empty return
-      printf("Nothing is in the history");
-      return;
     {
+      printf("Nothing is in the history\n");
+      return;
+    }
 
         Item *temp = list->root;//copy root into temp
         printf("Printing History: \n");
@@ -92,18 +93,16 @@ void print_history(List *list)
         {
             if(temp->str != NULL)//chek if str is null or not
             {
-                printf("[ID:[%d] : %s]", temp->id, temp->str);//print id and item->str associated with id
+                printf("[ID:[%d] : %s]\n", temp->id, temp->str);//print id and item->str associated with id
                 temp = temp->next;//move temp to next 
             }
             else
             {
-                printf("[ID:[%d] : NULL]", temp->id);//print id and NULL for when last item is met
+                printf("[ID:[%d] : NULL]\n", temp->id);//print id and NULL for when last item is met
  
             }
         }
-	printf("\n");
     }
-}
 
 void free_history(List *list)
 {
@@ -123,14 +122,14 @@ void free_history(List *list)
 }
 
 //testing main
-// int main()
-// {
-//     List *history = init_history();
-//     add_history(history,"hello");
-//     add_history(history,"hello");
-//     char *token = get_history(history,1);
-//     printf("%s", token);
-//     print_history(history);
-//     return 0;
+int main()
+{
+    List *history = init_history();
+    add_history(history,"hello");
+    add_history(history,"hello");
+    // char *token = get_history(history,1);
+    // printf("%s", token);
+    print_history(history);
+    return 0;
 
-// }
+}
