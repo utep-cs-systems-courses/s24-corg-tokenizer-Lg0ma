@@ -71,7 +71,11 @@ char *get_history(List *list, int id)
         {
             if(temp->id == id)//if id is found return str of item with matching id
             {
-                printf("%s", temp->str);
+                int i =0;
+                while(temp->str[i] != '\0')
+                {
+                printf("%s", temp->str[i]);
+                }
                 return temp->str;
             }
             temp = temp->next;//move the pointer forward to next Item
