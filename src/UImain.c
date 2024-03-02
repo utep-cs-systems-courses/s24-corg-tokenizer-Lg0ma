@@ -33,6 +33,11 @@ int main()
             int pos;
             scanf(" %d", &pos);
             token = get_history(history,pos);
+            while(token != NULL)
+            {
+            printf("%s", token);
+            token++;
+            }
             printf("\n");
             break;
 	case 'q':
