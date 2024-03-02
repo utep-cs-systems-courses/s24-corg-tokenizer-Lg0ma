@@ -4,12 +4,13 @@
 #include "history.h"
 
 
-    char string[100];
-    char *token;
-    char select;
+
 
 int main()
 {
+    char string[100];
+    char *token;
+    char select;
     List *history = init_history();
     printf("Please make a selection for what you want to do\n");
     while(1)
