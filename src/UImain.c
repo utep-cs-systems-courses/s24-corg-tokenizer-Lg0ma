@@ -3,9 +3,6 @@
 #include "tokenizer.h"
 #include "history.h"
 
-
-
-
 int main()
 {
     char string[100];
@@ -24,9 +21,9 @@ int main()
             scanf(" %[^\n]", &string);
             char **tokens = tokenize(string);
             printf("\n");
-            add_history(history,&string);
+            // add_history(history,&string);
             print_tokens(tokens);
-            free_tokens(tokens);
+            // free_tokens(tokens);
             break;
         case '2':
             print_history(history);
