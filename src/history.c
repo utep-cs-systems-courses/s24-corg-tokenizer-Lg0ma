@@ -5,14 +5,17 @@
 
 List* init_history()
 {
-    List *history = malloc(sizeof(List));//allocates memory for List
-    history->root = malloc(sizeof(Item));//sets initial root pointer to null will be changed in futher functions
+    List *history = (List*)malloc(sizeof(List));//allocates memory for List
+    if(history != NULL)
+    {
+        history->root = NULL;
+    }
     return history;
 }
 
 void add_history(List *list, char *str)
 {
-    static int pos_id = 0;//declare variable pos_id to keep count of items to use count as item id
+    static int pos_id = 1;//declare variable pos_id to keep count of items to use count as item id
     if(list != NULL)//if list exists
     {
         Item *new_item = (Item*)malloc(sizeof(Item));//declare new item and allocate size
