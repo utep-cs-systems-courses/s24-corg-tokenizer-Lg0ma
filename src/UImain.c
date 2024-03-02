@@ -4,12 +4,13 @@
 #include "history.h"
 
 
-int main()
-{
-    List *history = init_history();
     char string[100];
     char *token;
     char select;
+
+int main()
+{
+    List *history = init_history();
     printf("Please make a selection for what you want to do\n");
     while(1)
     {
@@ -22,8 +23,10 @@ int main()
             scanf(" %[^\n]", &string);
             char **tokens = tokenize(string);
             printf("\n");
+            add_history(history,&string);
             print_tokens(tokens);
             add_history(history, *tokens);
+            free_tokens(tokens);
             break;
         case '2':
             print_history(history);
@@ -33,11 +36,8 @@ int main()
             int pos;
             scanf(" %d", &pos);
             token = get_history(history,pos);
-            while(token != NULL)
-            {
-            printf("%s", token);
-            token++;
-            }
+            char **item = tokenize(token);
+            print_tokens(item);
             printf("\n");
             break;
 	case 'q':

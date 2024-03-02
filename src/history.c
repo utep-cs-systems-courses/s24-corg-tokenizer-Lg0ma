@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "history.h"
+#include "tokenizer.h"
+#include "tokenizer.c"
+
 #define MAXTOKENS 100
 
 List* init_history()
@@ -24,21 +27,25 @@ void add_history(List *list, char *str)
     }
 
     int len = 0;//create lenn var to store str length
-    while(str[len] != '\0')//iterate through str until the zero terminator
+    while(*(str + len) != '\0' && *(str + len) != '\n')//iterate through str until the zero terminator
     {
         len++;//increase len by 1
     }
 
-    new_item->str = (char*)malloc((len + 1) * (sizeof(char)));//allocate memory to str based on the length of the string
-    if(new_item == NULL)//handle memory allocation failure
+    new_item->str = (char*)malloc((len + 1) * sizeof(char));//allocate memory to str based on the length of the string
+    
+    if(new_item->str == NULL)//handle memory allocation failure
     {
         fprintf(stderr,"new_item->str Memory allocation Failed\n");
+        free(new_item);
     }
 
-    for(int i =0;  i < len; i++)//iterate through str 
-    {
-        new_item->str[i] = str[i];//copy str into new_item->str one char at a time
+    int i;
+    for (i = 0; i < len; i++) {
+        new_item->str[i] = str[i];
     }
+    new_item->str[i] = '\0'; // Add null terminator at the end
+
     new_item->next = NULL;//set next to NULL
     
     if(list->root == NULL)//if list is empty
@@ -123,14 +130,14 @@ void free_history(List *list)
 }
 
 //testing main
-// int main()
-// {
-//     List *history = init_history();
-//     add_history(history,"hello");
-//     add_history(history,"hello");
-//     // char *token = get_history(history,1);
-//     // printf("%s", token);
-//     print_history(history);
-//     return 0;
+int main()
+{
+    List *history = init_history();
+    add_history(history,"hello ss");
+    add_history(history,"hello");
+    // char *token = get_history(history,1);
+    // printf("%s", token);
+    print_history(history);
+    return 0;
 
-// }
+}
