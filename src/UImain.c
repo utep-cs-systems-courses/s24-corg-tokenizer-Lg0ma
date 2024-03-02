@@ -26,7 +26,6 @@ int main()
             printf("\n");
             add_history(history,&string);
             print_tokens(tokens);
-            add_history(history, *tokens);
             free_tokens(tokens);
             break;
         case '2':
