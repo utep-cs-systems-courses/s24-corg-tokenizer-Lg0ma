@@ -114,6 +114,7 @@ while (tokens[i] != NULL)//traverses the array till reaching the '\0' token
     printf("Token #%d: %s\n", i, tokens[i]);//prints token as: Token #i: tokens[i]
     i++;
 }
+ printf("Token #%d: %s\n",i, tokens[i]);
 }
 
 

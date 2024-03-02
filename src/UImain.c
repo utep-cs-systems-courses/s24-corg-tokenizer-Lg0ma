@@ -25,7 +25,7 @@ int main()
         printf("before print tokens");
 	    print_tokens(tokens);
         printf("Before add_history");
-	    add_history(history, *tokens);
+	    // add_history(history, *tokens);
             break;
         case '2':
 	    print_history(history);
