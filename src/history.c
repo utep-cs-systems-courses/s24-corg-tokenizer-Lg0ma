@@ -99,8 +99,9 @@ void print_history(List *list)
             else
             {
                 printf("[ID:[%d] : NULL]\n", temp->id);//print id and NULL for when last item is met
- 
             }
+            temp = temp->next;//move temp to next 
+
         }
     }
 
