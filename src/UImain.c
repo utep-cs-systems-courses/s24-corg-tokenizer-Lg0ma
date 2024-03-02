@@ -20,25 +20,27 @@ int main()
         case '1':
             printf("Enter string to be tokenized\n>");
             scanf(" %[^\n]", &string);
-	    char **tokens = tokenize(string);
-	    printf("\n");
-        printf("before print tokens\n");
-	    print_tokens(tokens);
-        printf("Before add_history\n");
-	    add_history(history, *tokens);
+            char **tokens = tokenize(string);
+            printf("\n");
+            print_tokens(tokens);
+            add_history(history, *tokens);
             break;
         case '2':
-	    print_history(history);
+            print_history(history);
             break;
         case '3':
             printf("Enter pos_id for item you are looking for\n");
-	    int pos;
-	    scanf(" %d", &pos);
-	    token = get_history(history,pos);
-	    if(token != NULL)
-	      {
-	    printf("%s", token);
-	      }
+            int pos;
+            scanf(" %d", &pos);
+            token = get_history(history,pos);
+            int i;
+            printf("Item of id: %d\n", pos);
+            while(token[i] != NULL)
+            {
+            printf("%s\n", token[i]);
+            i++;
+            }
+            printf("\n");
             break;
 	case 'q':
 	  printf("Exiting system...\n");
