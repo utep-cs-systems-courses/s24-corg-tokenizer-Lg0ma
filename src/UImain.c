@@ -35,7 +35,7 @@ int main()
             token = get_history(history,pos);
             int i;
             printf("Item of id: %d\n", pos);
-            while(token[i] != NULL)
+            while(token[i] != '\0')
             {
             printf("%s\n", token[i]);
             i++;
