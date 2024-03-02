@@ -65,7 +65,7 @@ char *get_history(List *list, int id)
 
     Item *temp = list->root;//create temp item for use ahead
     if(list->root == NULL || list == NULL)//if tlist is empty retun '\0'
-        return '\0';
+        return NULL;
     {
         while (temp != NULL)//while temp is not NULL
         {
@@ -75,7 +75,7 @@ char *get_history(List *list, int id)
             }
             temp = temp->next;//move the pointer forward to next Item
         }
-        return'\0';//if not found return '\0'
+        return NULL;//if not found return '\0'
     }
 }
 
