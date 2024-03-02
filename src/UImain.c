@@ -33,8 +33,6 @@ int main()
             int pos;
             scanf(" %d", &pos);
             token = get_history(history,pos);
-            int i;
-            printf("Item of id: %d\n", pos);
             printf("\n");
             break;
 	case 'q':
