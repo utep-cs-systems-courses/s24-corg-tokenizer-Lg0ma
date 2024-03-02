@@ -21,9 +21,9 @@ int main()
             scanf(" %[^\n]", &string);
             char **tokens = tokenize(string);
             printf("\n");
-            // add_history(history,&string);
+            add_history(history,&string);
             print_tokens(tokens);
-            // free_tokens(tokens);
+            free_tokens(tokens);
             break;
         case '2':
             print_history(history);
@@ -35,6 +35,7 @@ int main()
             token = get_history(history,pos);
             char **item = tokenize(token);
             print_tokens(item);
+            free_tokens(item);
             printf("\n");
             break;
 	case 'q':
